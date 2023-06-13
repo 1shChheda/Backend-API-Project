@@ -24,6 +24,8 @@ app.use('/products', productRoutes);
 
 app.use('/orders', orderRoutes);
 
+require('./utils/all_Model_Relationship').Model_Relationship();
+
 sequelize.sync()
     .then(() => {
 

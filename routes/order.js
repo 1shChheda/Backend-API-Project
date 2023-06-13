@@ -10,4 +10,6 @@ router.get('/:orderId', orderController.getOrderById);
 
 router.post('/', orderController.postAddOrder);
 
+router.post('/:orderId/products/:productId', orderController.addProductToOrder);
+
 module.exports = router;
