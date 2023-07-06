@@ -1,6 +1,6 @@
-# Backend API Project
+# REST APIs for Simple Online Store
 
-This repository contains a backend API project that implements a RESTful API for managing orders and products.
+This repository contains a set of REST APIs that implement an online store backend for managing orders and products.
 
 ## Table of Contents
 
@@ -15,7 +15,7 @@ This repository contains a backend API project that implements a RESTful API for
 
 ## Introduction
 
-The Backend API Project is designed to provide a RESTful API for managing orders and products. It allows users to create, retrieve, update, and delete orders and products through a set of API endpoints.
+The REST APIs for Simple Online Store provide a backend solution for managing orders and products. The APIs allow users to perform CRUD operations on orders and products, including creating orders, adding products to orders, retrieving order details, managing products, and more.
 
 ## Features
 
@@ -37,20 +37,20 @@ The Backend API Project is designed to provide a RESTful API for managing orders
 - MySQL (Database)
 - XAMPP (Local Development Environment)
 - Body-parser (Middleware for parsing JSON)
-- nodemon (Development server)
+- Nodemon (Development server)
 
 ## Installation
 
 1. Clone the repository:
 
    ```bash
-   git clone https://github.com/1shChheda/Backend-API-Project.git
+   git clone https://github.com/1shChheda/REST-APIs-Simple-Online-Store.git
 
 2. Install the dependencies:
 
-    ```bash
-    cd Backend-API-Project
-    npm install
+   ```bash
+   cd REST-APIs-Simple-Online-Store
+   npm install
 
 3. Set up the database:
 
@@ -66,17 +66,21 @@ The Backend API Project is designed to provide a RESTful API for managing orders
  - The server will start running at http://localhost:5000
 
 ## API Endpoints
-- Orders
-    - GET /orders - Retrieve a list of all orders.
-    - GET /orders/:orderId - Retrieve an order by ID.
-    - POST /orders - Create a new order.
-    - POST /orders/:orderId/products/:productId - Add a product to an order.
-- Products
-    - GET /products - Retrieve a list of all products.
-    - GET /products/:productId - Retrieve a product by ID.
-    - POST /products - Create a new product.
-    - PUT /products/:productId - Update an existing product.
-    - DELETE /products/:productId - Delete a product.
+
+The following are the available API endpoints:
+
+### Orders
+- GET /orders - Retrieve a list of all orders.
+- GET /orders/:orderId - Retrieve an order by ID.
+- POST /orders - Create a new order.
+- POST /orders/:orderId/products/:productId - Add a product to an order.
+
+### Products
+- GET /products - Retrieve a list of all products.
+- GET /products/:productId - Retrieve a product by ID.
+- POST /products - Create a new product.
+- PUT /products/:productId - Update an existing product.
+- DELETE /products/:productId - Delete a product.
 
 ## Database Configuration
 - To configure the database, update the database configuration in the .env file with your MySQL database details:
@@ -88,4 +92,4 @@ The Backend API Project is designed to provide a RESTful API for managing orders
     DB_NAME=your_database_name
 
 ## Contributing
-Contributions to the Backend API Project are welcome. Feel free to open issues and submit pull requests
+Contributions to the REST APIs for Simple Online Store are welcome. Feel free to open issues and submit pull requests.

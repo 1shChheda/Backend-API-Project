@@ -1,0 +1,53 @@
+# PRODUCT ENDPOINTS
+### GET All Products
+GET http://localhost:3000/products
+Content-Type: application/json
+
+### GET Product by ID
+GET http://localhost:3000/products/2
+Content-Type: application/json
+
+### POST a product
+POST http://localhost:3000/products
+Content-Type: application/json
+
+{
+    "name" : "NERF AWM Sniper",
+    "price" : 399.99,
+    "description" : "Experience unrivaled precision and power with the NERF AWM Sniper Gun, delivering exceptional accuracy for long-range domination",
+    "imageUrl" : "https://cdn.shopify.com/s/files/1/0554/9015/0572/products/800_02_877be15d-62ad-428c-9742-185d7eb30a14.jpg"
+}
+
+### PUT Update a Product
+PUT http://localhost:3000/products/10
+Content-Type: application/json
+
+{
+    "name" : "XBOX 360 Console"
+}
+
+### DELETE a Product by ID
+DELETE http://localhost:3000/products/5
+
+
+# ORDER ENDPOINTS
+### GET All Orders
+GET http://localhost:3000/orders
+Content-Type: application/json
+
+### GET Order By ID
+GET http://localhost:3000/orders/2
+Content-Type: application/json
+
+### POST a Order
+POST http://localhost:3000/orders
+Content-Type: application/json
+
+{
+    "customerId" : 6,
+    "shippingAddress" : "Nathani Heights, Mumbai Central, Mumbai-400008",
+    "totalPrice" : 0
+}
+
+### POST Add a Product to Order
+POST http://localhost:3000/orders/3/products/4
