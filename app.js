@@ -16,9 +16,37 @@ const productRoutes = require('./routes/product');
 
 const sequelize = require('./utils/database');
 
+const expressWinston = require('express-winston');
+
+const { allLogger, errorLogger, warnLogger } = require('./logger');
+
 // app.use(bodyParser.urlencoded()); // for "x-www-form-urlencoded" <form>
 
 app.use(bodyParser.json()); // for "application/json" data // in short, Parse request bodies as JSON
+
+app.use(expressWinston.logger({
+    winstonInstance: allLogger,
+    statusLevels: true,
+    requestWhitelist: ['url', 'method', 'httpVersion', 'headers', 'body'],
+    responseWhitelist: ['statusCode', 'body']
+}));
+
+app.use(expressWinston.errorLogger({
+    winstonInstance: errorLogger,
+    statusLevels: true,
+    requestWhitelist: ['url', 'method', 'httpVersion', 'headers', 'body'],
+    responseWhitelist: ['statusCode', 'body'],
+    level : 'error'
+}));
+
+app.use(expressWinston.logger({
+    winstonInstance: warnLogger,
+    statusLevels: true,
+    requestWhitelist: ['url', 'method', 'httpVersion', 'headers', 'body'],
+    responseWhitelist: ['statusCode', 'body'],
+    level: 'warn'
+}));
+
 
 app.use('/products', productRoutes);
 

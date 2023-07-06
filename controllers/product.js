@@ -48,10 +48,10 @@ exports.updateProduct = (req, res, next) => {
 
     Product.findByPk(productId)
         .then(product => {
-            product.name = updatedName,
-            product.price = updatedPrice,
-            product.description = updatedDescription,
-            product.imageUrl = updatedImageUrl
+            product.name = updatedName || product.name,
+            product.price = updatedPrice || product.price,
+            product.description = updatedDescription || product.description,
+            product.imageUrl = updatedImageUrl || product.imageUrl
 
             return product.save();
         })

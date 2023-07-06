@@ -14,7 +14,7 @@ exports.getOrderById = (req, res, next) => {
             if (order) {
                 res.status(200).json(order);
             } else {
-                res.json({ message : "No Orders Found!" });
+                res.status(400).json({ message : "No Orders Found!" });
             }
         })
         .catch(err => res.status(500).json({ message : "Error Detected!", error : err.message }));
@@ -27,7 +27,6 @@ exports.postAddOrder = (req, res, next) => {
     const totalPrice = req.body.totalPrice;
 
     Models.orderModel.create({
-        id : id,
         customerId : customerId,
         shippingAddress : shippingAddress,
         totalPrice : totalPrice
@@ -87,6 +86,9 @@ exports.addProductToOrder = (req, res, next) => {
                     })
 
                     .catch(err => res.status(500).json({ message : "Error Detected!", error : err.message })); 
-            }  
-        })                 
+            } else {
+                return res.status(400).json({ message : "Order Not Found" })
+            }
+        }) 
+        .catch(err => res.status(500).json({ message : "Error Detected!", error : err.message }));            
 }
